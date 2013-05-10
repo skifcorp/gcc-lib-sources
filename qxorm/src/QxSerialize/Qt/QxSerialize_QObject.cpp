@@ -31,6 +31,11 @@
 
 QX_BOOST_EXPORT_SERIALIZATION_FAST_COMPIL_CPP(QObject)
 
+
+
+#define saved_exception_code exception_code
+#undef exception_code
+
 namespace boost {
 namespace serialization {
 
@@ -69,5 +74,9 @@ inline void qx_load(Archive & ar, QObject & t, const unsigned int file_version)
 } // namespace boost
 } // namespace serialization
 
+
 QX_SERIALIZE_FAST_COMPIL_SAVE_LOAD_CPP(QObject)
 QX_REGISTER_BOOST_SERIALIZE_HELPER_CPP(QObject)
+
+#define exception_code saved_exception_code
+#undef saved_exception_code

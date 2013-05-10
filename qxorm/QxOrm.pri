@@ -106,8 +106,5 @@ win32-msvc2010: QMAKE_LFLAGS += /OPT:NOREF
 
 #LIBS += -L$${QX_BOOST_LIB_PATH}
 
-CONFIG(debug, debug|release) {
-LIBS += -l$${QX_BOOST_LIB_SERIALIZATION_DEBUG}
-} else {
-LIBS += -l$${QX_BOOST_LIB_SERIALIZATION_RELEASE}
-} # CONFIG(debug, debug|release)
+LIBS += -llibboost_serialization
+

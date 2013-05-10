@@ -32,6 +32,12 @@
 
 #include <QxMemLeak/mem_leak.h>
 
+#define saved_exception_code exception_code
+#undef exception_code
+
+
+
+
 QX_REGISTER_INTERNAL_HELPER_START_FILE_CPP(qx::service::IxService)
 
 namespace qx {
@@ -88,5 +94,11 @@ inline void qx_load(Archive & ar, qx::service::IxService & t, const unsigned int
 } // namespace serialization
 
 QX_REGISTER_INTERNAL_HELPER_END_FILE_CPP(qx::service::IxService)
+
+
+
+#define exception_code saved_exception_code
+#undef saved_exception_code
+
 
 #endif // _QX_ENABLE_QT_NETWORK_DEPENDENCY

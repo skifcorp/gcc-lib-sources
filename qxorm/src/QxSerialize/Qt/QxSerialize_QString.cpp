@@ -32,6 +32,12 @@
 
 #include <QxMemLeak.h>
 
+#define saved_exception_code exception_code
+#undef exception_code
+
+
+
+
 namespace boost {
 namespace serialization {
 
@@ -114,5 +120,11 @@ inline void qx_load(Archive & ar, QString & t, const unsigned int file_version)
 
 } // namespace boost
 } // namespace serialization
+
+
+
+#define exception_code saved_exception_code
+#undef saved_exception_code
+
 
 QX_SERIALIZE_FAST_COMPIL_SAVE_LOAD_CPP(QString)

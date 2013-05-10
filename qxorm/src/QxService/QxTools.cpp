@@ -34,6 +34,12 @@
 
 #include <QxMemLeak/mem_leak.h>
 
+#define saved_exception_code exception_code
+#undef exception_code
+
+
+
+
 #define QX_SERVICE_TOOLS_HEADER_SIZE (sizeof(quint32) + sizeof(quint16) + sizeof(quint16) + sizeof(quint16)) // (serialized data size) + (serialization type) + (compress data) + (encrypt data)
 #define QX_SERVICE_MIN_SIZE_TO_COMPRESS_DATA 2000
 
@@ -202,5 +208,11 @@ qx_bool QxTools::writeSocket(QTcpSocket & socket, QxTransaction & transaction, q
 
 } // namespace service
 } // namespace qx
+
+
+
+#define exception_code saved_exception_code
+#undef saved_exception_code
+
 
 #endif // _QX_ENABLE_QT_NETWORK_DEPENDENCY

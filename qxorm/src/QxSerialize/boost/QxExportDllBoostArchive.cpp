@@ -33,6 +33,10 @@
 
 #include <QxMemLeak.h>
 
+#define saved_exception_code exception_code
+#undef exception_code
+
+
 #if (BOOST_VERSION > 103800)
 #define QX_BOOST_EXPORT_ARCHIVE_SERIALIZER_MAP_SINGLETON_CPP(Archive) \
 QX_DLL_EXPORT_TEMPLATE_T_U_P1_CPP(class, boost::serialization::singleton, boost::archive::detail::archive_serializer_map, Archive)
@@ -198,5 +202,9 @@ QX_BOOST_EXPORT_ARCHIVE_COMMON_CPP(ArchiveIn, ArchiveOut)
 #if _QX_SERIALIZE_WIDE_XML
    QX_BOOST_EXPORT_ARCHIVE_ALL_CPP(boost::archive::xml_wiarchive, boost::archive::xml_woarchive)
 #endif // _QX_SERIALIZE_WIDE_XML
+
+#define exception_code saved_exception_code
+#undef saved_exception_code
+
 
 #endif // _QX_USE_EXPORT_DLL_BOOST_SERIALIZATION_SINGLETON
