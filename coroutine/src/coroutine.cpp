@@ -33,7 +33,6 @@
 #include <QDebug>
 #include "coroutine.h"
 
-#include "new/guarded_stack_allocator.hpp"
 
 /*!
   \class Coroutine
@@ -156,8 +155,8 @@ void Coroutine::createStack(int size)
     if (_stackData)
         free(_stackData);
 
-    // _stackData = malloc(size);
-    _stackData = boost::context::guarded_stack_allocator::allocate(size);
+    _stackData = malloc(size);
+    //_stackData = boost::context::guarded_stack_allocator::allocate(size);
 
     //memset(_stackData, 0, size );
     initializeStack(_stackData, size, &entryPoint, &_stackPointer);

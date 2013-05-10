@@ -17,9 +17,7 @@ HEADERS += \
     coroutinestoredfunctioncall_p.h \
     new/guarded_stack_allocator.hpp
 
-SOURCES += coroutine.cpp \
-    new/guarded_stack_allocator.cpp \
-    new/utils_windows.cpp
+SOURCES += coroutine.cpp
 
 #LIBS += -llibboost_context
 
