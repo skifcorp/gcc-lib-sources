@@ -129,7 +129,7 @@ Coroutine::Coroutine(const QString& n)
 
 Coroutine::~Coroutine()
 {
-    if ( _status == Running || _status == Stopped ) {
+    if ( _status == Running /*|| _status == Stopped */) {
         qWarning() << "deleting running coroutine is a big error! coro_name: "<< coro_name <<" status: " << _status;
         qFatal("Exiting ...");
     }

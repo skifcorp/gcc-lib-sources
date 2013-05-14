@@ -41,7 +41,7 @@ __switchStackInternal:
 
     // store SIMD floating point control word
     sub $4, %esp
-    stmxcsr (%esp)
+    //stmxcsr (%esp)
 
     // store floating point control bytes
     sub $4, %esp
@@ -59,7 +59,7 @@ __switchStackInternal:
     add $4, %esp
 
     // restore SIMD floating point control word
-    ldmxcsr (%esp)
+    //ldmxcsr (%esp)
     add $4, %esp
 
     // pop callee-saved registers
