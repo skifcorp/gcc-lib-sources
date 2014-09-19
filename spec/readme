@@ -1,0 +1,4 @@
+Put it to the <mingw-path>\lib\gcc\i686-w64-mingw32\<mingw-version>\
+
+Edit and change c:/home/lib/gcc-lib/ path to point to yours location
+ 
